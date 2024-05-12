@@ -70,24 +70,3 @@ if uploaded_file is not None:
     href_combined = f'<a href="data:file/csv;base64,{b64_combined}" download="{combined_filename}">登録データと合計のCSVファイルをダウンロード</a>'
     st.markdown(href_combined, unsafe_allow_html=True)
    
-# 食品成分の登録フォーム
-st.subheader('食品成分の登録')
-
-# 入力ボックスを横に配置するための列を作成
-col1, col2 = st.columns(2)  # 2つの列を作成
-
-# 1つ目の列に食品名とエネルギーを配置
-with col1:
-    food_name = st.text_input('食品名')
-    energy = st.number_input('エネルギー', min_value=0.0, step=0.1, format="%.1f")
-
-# 2つ目の列にたんぱく質、脂質、炭水化物、食塩、単価を配置
-with col2:
-    protein = st.number_input('たんぱく質', min_value=0.0, step=0.1, format="%.1f")
-    fat = st.number_input('脂質', min_value=0.0, step=0.1, format="%.1f")
-    carbs = st.number_input('炭水化物', min_value=0.0, step=0.1, format="%.1f")
-    salt = st.number_input('食塩', min_value=0.0, step=0.1, format="%.1f")
-    price = st.number_input('単価', min_value=0.0, step=0.01, format="%.1f")
-
-# 食品成分を登録するボタン
-register_button = st.button('食品成分を登録')
